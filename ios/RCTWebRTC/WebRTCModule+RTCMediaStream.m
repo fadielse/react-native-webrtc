@@ -36,6 +36,7 @@
  */
 - (RTCVideoTrack *)createVideoTrack:(NSDictionary *)constraints {
   RTCVideoSource *videoSource = [self.peerConnectionFactory videoSource];
+  [videoSource adaptOutputFormatToWidth:380 height:180 fps:11];
 
   NSString *trackUUID = [[NSUUID UUID] UUIDString];
   RTCVideoTrack *videoTrack = [self.peerConnectionFactory videoTrackWithSource:videoSource trackId:trackUUID];
